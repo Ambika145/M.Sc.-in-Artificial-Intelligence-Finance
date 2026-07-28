@@ -128,10 +128,35 @@
       .hero-section .hero-npf-scroll {
         flex: 1 1 auto !important;
         min-height: 0 !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
+        overflow: hidden !important;
         overscroll-behavior: contain !important;
-        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+      }
+
+      .hero-section .hero-npf-scroll::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+        display: none !important;
+      }
+
+      /* 100% scale: taller form area, no scrollbar */
+      @media screen and (min-width: 992px) and (min-height: 901px) {
+        .hero-section .hero-enquiry-card {
+          overflow: hidden !important;
+        }
+
+        .hero-section .hero-npf-scroll {
+          overflow: hidden !important;
+          scrollbar-width: none !important;
+        }
+
+        .hero-section .hero-enquiry-card .npf_wgts,
+        .hero-section .hero-enquiry-card .npf_wgts iframe {
+          height: 100% !important;
+          max-height: 100% !important;
+          min-height: 30rem !important;
+          overflow: hidden !important;
+        }
       }
 
       @media screen and (max-width: 991px) {
@@ -169,7 +194,8 @@
 
         .hero-section .hero-npf-scroll {
           max-height: min(360px, 54vh) !important;
-          overflow-y: auto !important;
+          overflow: hidden !important;
+          scrollbar-width: none !important;
         }
       }
 
@@ -358,8 +384,30 @@
           flex: 1 1 auto !important;
           min-height: 0 !important;
           max-height: 100% !important;
-          overflow-y: auto !important;
-          overflow-x: hidden !important;
+          overflow: hidden !important;
+          scrollbar-width: none !important;
+        }
+      }
+
+      @media screen and (min-width: 992px) and (min-height: 901px) {
+        .hero-section .hero-npf-scroll,
+        .hero-npf-scroll {
+          overflow: hidden !important;
+          scrollbar-width: none !important;
+        }
+
+        .hero-section .hero-npf-scroll::-webkit-scrollbar,
+        .hero-npf-scroll::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+
+        .hero-section .hero-enquiry-card .npf_wgts,
+        .hero-section .hero-enquiry-card .npf_wgts iframe {
+          height: 100% !important;
+          min-height: 30rem !important;
+          overflow: hidden !important;
         }
       }
 
@@ -369,9 +417,16 @@
         }
       }
 
-      /* 125% Windows scaling (~681-880px CSS height): keep the heading larger
-         so it doesn't look undersized next to the hero image / form. */
+      /* 125% Windows scaling (~681–880px): give Enquire form full usable height */
       @media screen and (min-width: 992px) and (min-height: 681px) and (max-height: 880px) {
+        .hero-section {
+          --hero-form-bar-gap: clamp(0.45rem, 1.4vh, 0.9rem) !important;
+          --hero-form-card-pad-y: 0.85rem !important;
+          --hero-form-card-pad-x: 1rem !important;
+          --hero-form-title-size: 1.05rem !important;
+          --hero-form-iframe-h: 100% !important;
+        }
+
         .hero-section .hero-title {
           font-size: clamp(2.5rem, min(8.2vh, 3.3vw), 3.75rem) !important;
           line-height: 1.1 !important;
@@ -386,33 +441,79 @@
           margin-top: clamp(0.9rem, 2.4vh, 1.5rem) !important;
           font-size: clamp(0.95rem, 2.4vh, 1.1rem) !important;
         }
+
+        .hero-section .hero-right {
+          align-self: stretch !important;
+          max-height: 100% !important;
+          min-height: 0 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          margin-top: 0 !important;
+          margin-bottom: var(--hero-form-bar-gap) !important;
+        }
+
+        .hero-section .hero-enquiry-card {
+          flex: 1 1 auto !important;
+          min-height: 0 !important;
+          max-height: 100% !important;
+          height: 100% !important;
+          overflow: hidden !important;
+          padding: 0.75rem 1rem 0.65rem !important;
+        }
+
+        .hero-section .hero-enquiry-card h3 {
+          font-size: 1.05rem !important;
+          margin-bottom: 0.45rem !important;
+        }
+
+        .hero-section .hero-npf-scroll {
+          flex: 1 1 auto !important;
+          min-height: 0 !important;
+          max-height: 100% !important;
+          height: 100% !important;
+          overflow: hidden !important;
+          scrollbar-width: none !important;
+        }
+
+        .hero-section .hero-npf-scroll::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+
+        .hero-section .hero-enquiry-card .npf_wgts,
+        .hero-section .hero-enquiry-card .npf_wgts iframe {
+          display: block !important;
+          width: 100% !important;
+          height: 100% !important;
+          max-height: 100% !important;
+          min-height: 0 !important;
+        }
       }
 
-      /* 150% Windows scaling only (very short viewport <=627px). 100% (~940px) and
-         125% (~752px) are ABOVE this breakpoint and stay exactly as they are.
-         Here we scale the hero down just enough that the whole left column
-         (heading + text + button) and the info bar fit without clipping. */
+      /* 150% Windows scaling — short viewport: form must remain fully reachable */
       @media screen and (min-width: 992px) and (max-height: 680px) {
         .hero-section {
-          --hero-form-bar-gap: clamp(0.5rem, 1.6vh, 1rem) !important;
-          --hero-img-max: min(76vh, 30rem) !important;
-          /* Form is taller than the (shrunk) card - the card's scroll area shows
-             its own scrollbar so the whole form incl. SUBMIT is reachable. */
-          --hero-form-iframe-h: 32rem !important;
+          --hero-form-bar-gap: clamp(0.35rem, 1.2vh, 0.75rem) !important;
+          --hero-img-max: min(70vh, 26rem) !important;
+          --hero-form-iframe-h: 100% !important;
+          --hero-form-card-pad-y: 0.55rem !important;
+          --hero-form-card-pad-x: 0.75rem !important;
+          --hero-form-title-size: 0.95rem !important;
         }
 
         .hero-section .hero-header {
-          padding-bottom: 0.2rem !important;
+          padding-bottom: 0.15rem !important;
         }
 
         .hero-section .header-logo-jgu {
-          height: clamp(3rem, 8.6vh, 5rem) !important;
-          max-height: clamp(3rem, 8.6vh, 5rem) !important;
+          height: clamp(2.6rem, 7.5vh, 4.25rem) !important;
+          max-height: clamp(2.6rem, 7.5vh, 4.25rem) !important;
         }
 
         .hero-section .header-logo-jsbf {
-          height: clamp(3.4rem, 9.6vh, 5.6rem) !important;
-          max-height: clamp(3.4rem, 9.6vh, 5.6rem) !important;
+          height: clamp(3rem, 8.5vh, 4.75rem) !important;
+          max-height: clamp(3rem, 8.5vh, 4.75rem) !important;
         }
 
         .hero-section .hero-title {
@@ -447,42 +548,55 @@
         }
 
         .hero-section .hero-enquiry-card h3 {
-          font-size: clamp(1.1rem, 2.7vh, 1.5rem) !important;
-          margin-bottom: clamp(0.4rem, 1.3vh, 0.85rem) !important;
+          font-size: clamp(0.95rem, 2.4vh, 1.2rem) !important;
+          margin-bottom: clamp(0.3rem, 1vh, 0.55rem) !important;
         }
 
-        /* Enquiry card fits the viewport; the form scrolls inside it, and the
-           card keeps its rounded corners (incl. the bottom) - the scroll area is
-           inset by padding and its bottom corners are rounded so the tall iframe
-           never squares off the card edge. */
         .hero-section .hero-right {
           align-self: stretch !important;
           max-height: 100% !important;
+          min-height: 0 !important;
           overflow: hidden !important;
+          display: flex !important;
+          flex-direction: column !important;
+          margin-top: 0 !important;
+          margin-bottom: var(--hero-form-bar-gap) !important;
         }
 
         .hero-section .hero-enquiry-card {
+          flex: 1 1 auto !important;
+          min-height: 0 !important;
           max-height: 100% !important;
+          height: 100% !important;
           overflow: hidden !important;
           border-radius: 1.25rem !important;
-          padding-bottom: clamp(0.85rem, 2.2vh, 1.25rem) !important;
+          padding: 0.55rem 0.75rem 0.5rem !important;
         }
 
         .hero-section .hero-npf-scroll {
           flex: 1 1 auto !important;
           min-height: 0 !important;
           max-height: 100% !important;
-          overflow-y: auto !important;
-          overflow-x: hidden !important;
+          height: 100% !important;
+          overflow: hidden !important;
+          scrollbar-width: none !important;
           border-bottom-left-radius: 0.9rem !important;
           border-bottom-right-radius: 0.9rem !important;
         }
 
+        .hero-section .hero-npf-scroll::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+
         .hero-section .hero-enquiry-card .npf_wgts,
         .hero-section .hero-enquiry-card .npf_wgts iframe {
-          height: 32rem !important;
-          max-height: 32rem !important;
-          min-height: 32rem !important;
+          display: block !important;
+          width: 100% !important;
+          height: 100% !important;
+          max-height: 100% !important;
+          min-height: 0 !important;
         }
       }
     </style>
@@ -535,7 +649,7 @@
         <div class="hero-enquiry-card">
           <h3>ENQUIRE HERE!</h3>
           <div class="hero-npf-scroll">
-            <div class="npf_wgts hero-npf-widget" data-height="400px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
+            <div class="npf_wgts hero-npf-widget" data-height="560px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
           </div>
         </div>
       </div>
