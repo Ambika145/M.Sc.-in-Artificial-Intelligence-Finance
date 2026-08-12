@@ -102,7 +102,7 @@ img {
     max-height: 100% !important;
   }
 
-  .hero-info-bar {
+  .hero-bottom-strip {
     grid-row: 2 !important;
     margin-top: var(--hero-image-info-gap) !important;
     flex: none !important;
@@ -139,7 +139,7 @@ img {
     flex-direction: column !important;
   }
 
-  .hero-info-bar {
+  .hero-bottom-strip {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;

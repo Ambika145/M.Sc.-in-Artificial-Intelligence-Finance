@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     
-        <link rel="stylesheet" href="style.css?v=202607141930">
-        <link rel="stylesheet" href="responsive.css?v=202607101900">
+        <link rel="stylesheet" href="style.css?v=202608121639">
+        <link rel="stylesheet" href="responsive.css?v=202608121639">
 
     <!-- Critical: hero layout; enquiry form scrolls inside card only -->
     <style>
@@ -31,7 +31,9 @@
         isolation: isolate;
       }
 
-      .hero-info-bar {
+      .hero-bottom-strip,
+      .hero-info-bar,
+      .hero-scholarship-bar {
         background: linear-gradient(90deg, #1a237e 0%, #4527a0 32%, #7b1fa2 62%, #00acc1 100%) !important;
         position: relative !important;
         z-index: 5 !important;
@@ -42,6 +44,21 @@
         opacity: 1 !important;
         width: 100% !important;
         max-width: 100% !important;
+      }
+
+      .hero-scholarship-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
+        padding: 0.7rem 1rem !important;
+        text-align: center !important;
+      }
+
+      .hero-scholarship-text {
+        margin: 0 !important;
+        color: #fff !important;
+        font-weight: 800 !important;
+        font-size: clamp(0.92rem, 1.35vw, 1.15rem) !important;
+        letter-spacing: 0.02em !important;
+        line-height: 1.35 !important;
       }
 
       .features-section {
@@ -300,7 +317,7 @@
           font-size: clamp(1rem, 2.35vh, 1.4rem) !important;
         }
 
-        .hero-info-bar {
+        .hero-bottom-strip {
           grid-row: 2 !important;
           margin-top: var(--hero-image-info-gap) !important;
           flex: none !important;
@@ -308,7 +325,14 @@
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
+        }
+
+        .hero-info-bar {
           padding: clamp(0.85rem, 2.3vh, 1.55rem) 0 !important;
+        }
+
+        .hero-scholarship-bar {
+          padding: clamp(0.5rem, 1.4vh, 0.85rem) 1rem !important;
         }
 
         .hero-section .hero-info-inner {
@@ -656,23 +680,28 @@
     </div>
   </div>
 
-  <div class="hero-info-bar">
-    <div class="hero-info-inner">
-      <div class="hero-info-item">
-        <strong>Postgraduate Degree</strong>
+  <div class="hero-bottom-strip">
+    <div class="hero-info-bar">
+      <div class="hero-info-inner">
+        <div class="hero-info-item">
+          <strong>Postgraduate Degree</strong>
+        </div>
+        <div class="hero-info-item">
+          <strong>Duration: 1 Year</strong>
+        </div>
+        <div class="hero-info-item">
+          <strong>Batch Starts: September 2026</strong>
+        </div>
+        <div class="hero-info-item">
+          <strong>Fully Online Programme</strong>
+        </div>
+        <div class="hero-info-item">
+          <strong>Easy EMI Options</strong>
+        </div>
       </div>
-      <div class="hero-info-item">
-        <strong>Duration: 1 Year</strong>
-      </div>
-      <div class="hero-info-item">
-        <strong>Batch Starts: September 2026</strong>
-      </div>
-      <div class="hero-info-item">
-        <strong>Fully Online Programme</strong>
-      </div>
-      <div class="hero-info-item">
-        <strong>Easy EMI Options</strong>
-      </div>
+    </div>
+    <div class="hero-scholarship-bar">
+      <p class="hero-scholarship-text">Merit-Based Scholarships Available for Eligible Candidates</p>
     </div>
   </div>
 </section>
