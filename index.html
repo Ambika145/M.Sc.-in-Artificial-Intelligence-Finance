@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -32,17 +32,8 @@
     <meta http-equiv="Expires" content="0">
     <title>M.Sc. in Artificial Intelligence & Finance - O.P. Jindal Global University</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://jguonline.edu.in/public/frontend/assets/img/favicon.ico">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    
-        <link rel="stylesheet" href="style.css?v=202608121639">
-        <link rel="stylesheet" href="responsive.css?v=202608121639">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=202610281200">
 
     <!-- Critical: hero layout; enquiry form scrolls inside card only -->
     <style>
@@ -55,12 +46,10 @@
         isolation: isolate;
       }
 
-      .hero-bottom-strip,
-      .hero-info-bar,
-      .hero-scholarship-bar {
+      .hero-info-bar {
         background: linear-gradient(90deg, #1a237e 0%, #4527a0 32%, #7b1fa2 62%, #00acc1 100%) !important;
         position: relative !important;
-        z-index: 5 !important;
+        z-index: 2 !important;
         flex: none !important;
         flex-shrink: 0 !important;
         display: block !important;
@@ -70,19 +59,30 @@
         max-width: 100% !important;
       }
 
+      .hero-bottom-bars {
+        position: relative !important;
+        z-index: 2 !important;
+      }
+
+      .hero-section .hero-container {
+        position: relative !important;
+        z-index: 3 !important;
+      }
+
       .hero-scholarship-bar {
-        border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
-        padding: 0.7rem 1rem !important;
+        background: #3f2a8c !important;
+        width: 100% !important;
+        max-width: 100% !important;
         text-align: center !important;
+        padding: 0.55rem 1rem !important;
       }
 
       .hero-scholarship-text {
         margin: 0 !important;
         color: #fff !important;
-        font-weight: 800 !important;
-        font-size: clamp(0.92rem, 1.35vw, 1.15rem) !important;
-        letter-spacing: 0.02em !important;
-        line-height: 1.35 !important;
+        font-size: clamp(0.78rem, 2.8vw, 0.95rem) !important;
+        font-weight: 600 !important;
+        line-height: 1.4 !important;
       }
 
       .features-section {
@@ -94,7 +94,7 @@
         clear: both;
       }
 
-      /* Hero button + logos - inline so changes show even when CSS is cached */
+      /* Hero button + logos — inline so changes show even when CSS is cached */
       .hero-section .header-logo-jgu {
         height: 5.75rem !important;
         max-height: 5.75rem !important;
@@ -112,6 +112,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         margin-top: 1.25rem !important;
+        margin-bottom: 0.75rem !important;
         padding: 0.9rem 2.85rem !important;
         background-color: #ffffff !important;
         background-image:
@@ -130,13 +131,16 @@
         box-shadow: 0 6px 18px rgba(74, 20, 140, 0.16) !important;
         flex-shrink: 0 !important;
         position: relative !important;
-        z-index: 8 !important;
+        z-index: 12 !important;
         align-self: flex-start !important;
         cursor: pointer !important;
       }
 
       .hero-section .hero-title {
-        font-size: clamp(2.25rem, 3.8vw, 3.25rem) !important;
+        font-size: clamp(2rem, 3.4vw, 2.85rem) !important;
+        line-height: 1.2 !important;
+        overflow: visible !important;
+        padding-top: 0.12em !important;
       }
 
       .hero-section .hero-subtitle {
@@ -169,42 +173,20 @@
       .hero-section .hero-npf-scroll {
         flex: 1 1 auto !important;
         min-height: 0 !important;
-        overflow: hidden !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
         overscroll-behavior: contain !important;
-        scrollbar-width: none !important;
-      }
-
-      .hero-section .hero-npf-scroll::-webkit-scrollbar {
-        width: 0 !important;
-        height: 0 !important;
-        display: none !important;
-      }
-
-      /* 100% scale: taller form area, no scrollbar */
-      @media screen and (min-width: 992px) and (min-height: 901px) {
-        .hero-section .hero-enquiry-card {
-          overflow: hidden !important;
-        }
-
-        .hero-section .hero-npf-scroll {
-          overflow: hidden !important;
-          scrollbar-width: none !important;
-        }
-
-        .hero-section .hero-enquiry-card .npf_wgts,
-        .hero-section .hero-enquiry-card .npf_wgts iframe {
-          height: 100% !important;
-          max-height: 100% !important;
-          min-height: 30rem !important;
-          overflow: hidden !important;
-        }
+        -webkit-overflow-scrolling: touch !important;
       }
 
       @media screen and (max-width: 991px) {
         .hero-section {
           min-height: auto !important;
           max-height: none !important;
-          overflow: visible !important;
+          overflow-x: clip !important;
+          overflow-y: visible !important;
+          width: 100% !important;
+          max-width: 100% !important;
         }
 
         .hero-section .header-logo-jgu,
@@ -235,8 +217,7 @@
 
         .hero-section .hero-npf-scroll {
           max-height: min(360px, 54vh) !important;
-          overflow: hidden !important;
-          scrollbar-width: none !important;
+          overflow-y: auto !important;
         }
       }
 
@@ -244,7 +225,7 @@
         /* SCALE-INVARIANT HERO.
            Everything is sized in vh (bounded by clamp) so the layout occupies the
            same physical fraction of the screen at 100% / 125% / 150% Windows
-           scaling - scaling only remaps CSS px of one physical screen, and vh
+           scaling — scaling only remaps CSS px of one physical screen, and vh
            tracks that physical screen. The hero is pinned to exactly one viewport
            with the info bar on the bottom grid row, so it is always fully visible
            and nothing crops. */
@@ -283,8 +264,8 @@
         }
 
         .hero-section .header-logo-jgu {
-          height: clamp(4.6rem, 14vh, 9rem) !important;
-          max-height: clamp(4.6rem, 14vh, 9rem) !important;
+          height: clamp(4.2rem, 9.5vh, 6rem) !important;
+          max-height: clamp(4.2rem, 9.5vh, 6rem) !important;
           width: auto !important;
         }
 
@@ -294,7 +275,7 @@
           width: auto !important;
         }
 
-        .hero-main {
+        .hero-section .hero-main {
           flex: 1 1 auto !important;
           min-height: 0 !important;
           max-height: 100% !important;
@@ -302,21 +283,36 @@
           align-items: end !important;
           padding-bottom: 0 !important;
           margin-bottom: 0 !important;
+          box-sizing: border-box !important;
         }
 
         .hero-left {
-          overflow: hidden !important;
+          overflow: visible !important;
           align-self: center !important;
           justify-content: center !important;
           min-height: 0 !important;
+          margin-top: 0 !important;
+          padding-top: 0.35rem !important;
+          padding-bottom: 0.35rem !important;
+          max-height: 100% !important;
+          box-sizing: border-box !important;
+          position: relative !important;
+          z-index: 4 !important;
+        }
+
+        .hero-left .btn-apply-now,
+        .hero-section .btn-apply-now {
+          margin-bottom: 1rem !important;
+          z-index: 12 !important;
+          position: relative !important;
         }
 
         .hero-section .hero-title {
-          /* Width guard (3.3vw / 4rem cap): the longest line "M.Sc. in Artificial"
-             is nowrap inside an overflow-hidden column, so the size must never
-             exceed what the left column can hold - vh alone can outgrow it. */
-          font-size: clamp(2.35rem, min(7.6vh, 3.3vw), 4rem) !important;
-          line-height: 1.12 !important;
+          font-size: clamp(1.6rem, 0.4rem + 2.1vw, 3.15rem) !important;
+          line-height: 1.22 !important;
+          overflow: visible !important;
+          padding-top: 0.32em !important;
+          margin-top: 0 !important;
         }
 
         .hero-section .hero-title-rule {
@@ -324,13 +320,13 @@
         }
 
         .hero-section .hero-subtitle {
-          font-size: clamp(1.05rem, 3.1vh, 1.7rem) !important;
+          font-size: clamp(0.8rem, 0.3rem + 0.95vw, 1.65rem) !important;
           margin-top: clamp(0.75rem, 2.4vh, 1.55rem) !important;
           line-height: 1.4 !important;
         }
 
         .hero-section .hero-description {
-          font-size: clamp(0.98rem, 2.45vh, 1.45rem) !important;
+          font-size: clamp(0.8rem, 0.3rem + 0.85vw, 1.45rem) !important;
           margin-top: clamp(0.6rem, 1.9vh, 1.25rem) !important;
           line-height: 1.55 !important;
         }
@@ -338,10 +334,10 @@
         .hero-section .btn-apply-now {
           margin-top: clamp(0.85rem, 2.6vh, 1.8rem) !important;
           padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2.4rem, 4.1vh, 3.75rem) !important;
-          font-size: clamp(1rem, 2.35vh, 1.4rem) !important;
+          font-size: clamp(0.85rem, 0.35rem + 0.6vw, 1.4rem) !important;
         }
 
-        .hero-bottom-strip {
+        .hero-info-bar {
           grid-row: 2 !important;
           margin-top: var(--hero-image-info-gap) !important;
           flex: none !important;
@@ -349,14 +345,7 @@
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
-        }
-
-        .hero-info-bar {
           padding: clamp(0.85rem, 2.3vh, 1.55rem) 0 !important;
-        }
-
-        .hero-scholarship-bar {
-          padding: clamp(0.5rem, 1.4vh, 0.85rem) 1rem !important;
         }
 
         .hero-section .hero-info-inner {
@@ -389,7 +378,7 @@
         }
 
         .hero-student-img {
-          max-height: min(100%, var(--hero-img-max)) !important;
+          max-height: 100% !important;
           max-width: 100% !important;
           width: auto !important;
           height: auto !important;
@@ -432,30 +421,8 @@
           flex: 1 1 auto !important;
           min-height: 0 !important;
           max-height: 100% !important;
-          overflow: hidden !important;
-          scrollbar-width: none !important;
-        }
-      }
-
-      @media screen and (min-width: 992px) and (min-height: 901px) {
-        .hero-section .hero-npf-scroll,
-        .hero-npf-scroll {
-          overflow: hidden !important;
-          scrollbar-width: none !important;
-        }
-
-        .hero-section .hero-npf-scroll::-webkit-scrollbar,
-        .hero-npf-scroll::-webkit-scrollbar {
-          width: 0 !important;
-          height: 0 !important;
-          display: none !important;
-        }
-
-        .hero-section .hero-enquiry-card .npf_wgts,
-        .hero-section .hero-enquiry-card .npf_wgts iframe {
-          height: 100% !important;
-          min-height: 30rem !important;
-          overflow: hidden !important;
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
         }
       }
 
@@ -465,89 +432,15 @@
         }
       }
 
-      /* 125% Windows scaling (~681–880px): give Enquire form full usable height */
-      @media screen and (min-width: 992px) and (min-height: 681px) and (max-height: 880px) {
+      /* Laptop / short-viewport (<=800px tall, >=992px wide): slightly tighter
+         left column so title + Apply button always sit above the info bar. */
+      @media screen and (min-width: 992px) and (max-height: 800px) {
         .hero-section {
-          --hero-form-bar-gap: clamp(0.45rem, 1.4vh, 0.9rem) !important;
-          --hero-form-card-pad-y: 0.85rem !important;
-          --hero-form-card-pad-x: 1rem !important;
-          --hero-form-title-size: 1.05rem !important;
-          --hero-form-iframe-h: 100% !important;
+          --hero-form-bar-gap: clamp(0.5rem, 1.8vh, 1.25rem) !important;
         }
 
-        .hero-section .hero-title {
-          font-size: clamp(2.5rem, min(8.2vh, 3.3vw), 3.75rem) !important;
-          line-height: 1.1 !important;
-        }
-
-        .hero-section .hero-subtitle {
-          font-size: clamp(1.1rem, 3.2vh, 1.45rem) !important;
-          margin-top: clamp(0.7rem, 2vh, 1.2rem) !important;
-        }
-
-        .hero-section .btn-apply-now {
-          margin-top: clamp(0.9rem, 2.4vh, 1.5rem) !important;
-          font-size: clamp(0.95rem, 2.4vh, 1.1rem) !important;
-        }
-
-        .hero-section .hero-right {
-          align-self: stretch !important;
-          max-height: 100% !important;
-          min-height: 0 !important;
-          display: flex !important;
-          flex-direction: column !important;
-          margin-top: 0 !important;
-          margin-bottom: var(--hero-form-bar-gap) !important;
-        }
-
-        .hero-section .hero-enquiry-card {
-          flex: 1 1 auto !important;
-          min-height: 0 !important;
-          max-height: 100% !important;
-          height: 100% !important;
-          overflow: hidden !important;
-          padding: 0.75rem 1rem 0.65rem !important;
-        }
-
-        .hero-section .hero-enquiry-card h3 {
-          font-size: 1.05rem !important;
-          margin-bottom: 0.45rem !important;
-        }
-
-        .hero-section .hero-npf-scroll {
-          flex: 1 1 auto !important;
-          min-height: 0 !important;
-          max-height: 100% !important;
-          height: 100% !important;
-          overflow: hidden !important;
-          scrollbar-width: none !important;
-        }
-
-        .hero-section .hero-npf-scroll::-webkit-scrollbar {
-          width: 0 !important;
-          height: 0 !important;
-          display: none !important;
-        }
-
-        .hero-section .hero-enquiry-card .npf_wgts,
-        .hero-section .hero-enquiry-card .npf_wgts iframe {
-          display: block !important;
-          width: 100% !important;
-          height: 100% !important;
-          max-height: 100% !important;
-          min-height: 0 !important;
-        }
-      }
-
-      /* 150% Windows scaling — short viewport: form must remain fully reachable */
-      @media screen and (min-width: 992px) and (max-height: 680px) {
-        .hero-section {
-          --hero-form-bar-gap: clamp(0.35rem, 1.2vh, 0.75rem) !important;
-          --hero-img-max: min(70vh, 26rem) !important;
-          --hero-form-iframe-h: 100% !important;
-          --hero-form-card-pad-y: 0.55rem !important;
-          --hero-form-card-pad-x: 0.75rem !important;
-          --hero-form-title-size: 0.95rem !important;
+        .hero-section .hero-container {
+          padding-top: clamp(0.3rem, 1vh, 0.6rem) !important;
         }
 
         .hero-section .hero-header {
@@ -555,18 +448,91 @@
         }
 
         .hero-section .header-logo-jgu {
-          height: clamp(2.6rem, 7.5vh, 4.25rem) !important;
-          max-height: clamp(2.6rem, 7.5vh, 4.25rem) !important;
+          height: clamp(3.2rem, 8vh, 4.4rem) !important;
+          max-height: clamp(3.2rem, 8vh, 4.4rem) !important;
         }
 
         .hero-section .header-logo-jsbf {
-          height: clamp(3rem, 8.5vh, 4.75rem) !important;
-          max-height: clamp(3rem, 8.5vh, 4.75rem) !important;
+          height: clamp(3.6rem, 11vh, 5.2rem) !important;
+          max-height: clamp(3.6rem, 11vh, 5.2rem) !important;
+        }
+
+        .hero-left {
+          padding-top: 0.15rem !important;
+          padding-bottom: 0.15rem !important;
+        }
+
+        .hero-section .hero-title {
+          font-size: clamp(1.4rem, 0.3rem + 1.8vw, 2.5rem) !important;
+          line-height: 1.18 !important;
+          padding-top: 0.1em !important;
+        }
+
+        .hero-section .hero-title-rule {
+          margin-top: clamp(0.3rem, 1vh, 0.6rem) !important;
+        }
+
+        .hero-section .hero-subtitle {
+          font-size: clamp(0.78rem, 0.25rem + 0.8vw, 1.15rem) !important;
+          margin-top: clamp(0.4rem, 1.4vh, 0.85rem) !important;
+          line-height: 1.32 !important;
+        }
+
+        .hero-section .hero-description {
+          font-size: clamp(0.78rem, 0.25rem + 0.75vw, 1.05rem) !important;
+          margin-top: clamp(0.3rem, 1vh, 0.6rem) !important;
+          line-height: 1.4 !important;
+        }
+
+        .hero-left .btn-apply-now,
+        .hero-section .btn-apply-now {
+          margin-top: clamp(0.5rem, 1.6vh, 0.95rem) !important;
+          margin-bottom: 0.3rem !important;
+          padding: clamp(0.5rem, 1.4vh, 0.8rem) clamp(1.8rem, 3vh, 2.6rem) !important;
+          font-size: clamp(0.8rem, 0.3rem + 0.55vw, 1rem) !important;
+        }
+
+        .hero-info-bar {
+          padding: clamp(0.55rem, 1.6vh, 1rem) 0 !important;
+        }
+
+        .hero-section .hero-info-item {
+          font-size: clamp(0.85rem, 0.3rem + 0.7vw, 1.15rem) !important;
+        }
+      }
+
+      /* 150% Windows scaling only (very short viewport ≈627px). 100% (~940px) and
+         125% (~752px) are ABOVE this breakpoint and stay exactly as they are.
+         Here we scale the hero down just enough that the whole left column
+         (heading + text + button) and the info bar fit without clipping. */
+      @media screen and (min-width: 992px) and (max-height: 680px) {
+        .hero-section {
+          --hero-form-bar-gap: clamp(0.5rem, 1.6vh, 1rem) !important;
+          --hero-img-max: min(76vh, 30rem) !important;
+          /* Form is taller than the (shrunk) card → the card's scroll area shows
+             its own scrollbar so the whole form incl. SUBMIT is reachable. */
+          --hero-form-iframe-h: 32rem !important;
+        }
+
+        .hero-section .hero-header {
+          padding-bottom: 0.2rem !important;
+        }
+
+        .hero-section .header-logo-jgu {
+          height: clamp(3rem, 8.6vh, 5rem) !important;
+          max-height: clamp(3rem, 8.6vh, 5rem) !important;
+        }
+
+        .hero-section .header-logo-jsbf {
+          height: clamp(3.4rem, 9.6vh, 5.6rem) !important;
+          max-height: clamp(3.4rem, 9.6vh, 5.6rem) !important;
         }
 
         .hero-section .hero-title {
           font-size: clamp(1.35rem, 4.5vh, 2rem) !important;
-          line-height: 1.08 !important;
+          line-height: 1.2 !important;
+          overflow: visible !important;
+          padding-top: 0.12em !important;
         }
 
         .hero-section .hero-title-rule {
@@ -596,57 +562,45 @@
         }
 
         .hero-section .hero-enquiry-card h3 {
-          font-size: clamp(0.95rem, 2.4vh, 1.2rem) !important;
-          margin-bottom: clamp(0.3rem, 1vh, 0.55rem) !important;
+          font-size: clamp(1.1rem, 2.7vh, 1.5rem) !important;
+          margin-bottom: clamp(0.4rem, 1.3vh, 0.85rem) !important;
         }
 
+        /* Enquiry card fits the viewport; the form scrolls inside it, and the
+           card keeps its rounded corners (incl. the bottom) — the scroll area is
+           inset by padding and its bottom corners are rounded so the tall iframe
+           never squares off the card edge. */
         .hero-section .hero-right {
           align-self: stretch !important;
           max-height: 100% !important;
-          min-height: 0 !important;
           overflow: hidden !important;
-          display: flex !important;
-          flex-direction: column !important;
-          margin-top: 0 !important;
-          margin-bottom: var(--hero-form-bar-gap) !important;
         }
 
         .hero-section .hero-enquiry-card {
-          flex: 1 1 auto !important;
-          min-height: 0 !important;
           max-height: 100% !important;
-          height: 100% !important;
           overflow: hidden !important;
           border-radius: 1.25rem !important;
-          padding: 0.55rem 0.75rem 0.5rem !important;
+          padding-bottom: clamp(0.85rem, 2.2vh, 1.25rem) !important;
         }
 
         .hero-section .hero-npf-scroll {
           flex: 1 1 auto !important;
           min-height: 0 !important;
           max-height: 100% !important;
-          height: 100% !important;
-          overflow: hidden !important;
-          scrollbar-width: none !important;
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
           border-bottom-left-radius: 0.9rem !important;
           border-bottom-right-radius: 0.9rem !important;
         }
 
-        .hero-section .hero-npf-scroll::-webkit-scrollbar {
-          width: 0 !important;
-          height: 0 !important;
-          display: none !important;
-        }
-
         .hero-section .hero-enquiry-card .npf_wgts,
         .hero-section .hero-enquiry-card .npf_wgts iframe {
-          display: block !important;
-          width: 100% !important;
-          height: 100% !important;
-          max-height: 100% !important;
-          min-height: 0 !important;
+          height: 32rem !important;
+          max-height: 32rem !important;
+          min-height: 32rem !important;
         }
       }
+
     </style>
 </head>
 <body>
@@ -669,11 +623,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-left">
         <h1 class="hero-title">
           <span class="hero-title-line">
-            <span class="hero-title-base">M.Sc. in </span><span class="hero-title-gradient hero-title-gradient-inline">Artificial</span>
+            <span class="hero-title-base">M.Sc. in </span>
           </span>
           <span class="hero-title-gradient">
-            <span class="hero-title-line">Intelligence &amp;</span>
-            <span class="hero-title-line">Finance</span>
+            <span class="hero-title-line">Artificial Intelligence</span>
+            <span class="hero-title-line">&amp; Finance</span>
           </span>
         </h1>
         <div class="hero-title-rule" aria-hidden="true"></div>
@@ -694,14 +648,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-enquiry-card">
           <h3>ENQUIRE HERE!</h3>
           <div class="hero-npf-scroll">
-            <div class="npf_wgts hero-npf-widget" data-height="560px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
+            <div class="npf_wgts hero-npf-widget" data-height="400px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-bottom-strip">
+  <div class="hero-bottom-bars">
     <div class="hero-info-bar">
       <div class="hero-info-inner">
         <div class="hero-info-item">
@@ -721,11 +675,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <div class="hero-scholarship-bar">
-      <p class="hero-scholarship-text">Merit-Based Scholarships Available for Eligible Candidates</p>
-    </div>
   </div>
 </section>
+
+<div class="hero-scholarship-bar">
+  <p class="hero-scholarship-text">Merit-Based Scholarships Available for Eligible Candidates</p>
+</div>
 
 <section class="features-section section-global">
         <div class="container features-container">
@@ -792,10 +747,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="programme-overview-section section-global">
   <div class="container programme-overview-container">
     <div class="programme-overview-inner">
-      <div class="programme-visual">
-        <img src="assets/programme-circle.png?v=6" alt="M.Sc. in Artificial Intelligence and Finance" class="programme-circle-img">
-      </div>
-
       <div class="programme-overview-content">
         <h2 class="programme-overview-heading">M.Sc. in Artificial Intelligence &amp; Finance</h2>
         <p class="programme-overview-text">
@@ -804,6 +755,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="programme-overview-text">
           Through immersive live sessions, real-world projects, and mentorship from global experts, learners gain the skills to build AI-driven financial models, automate trading systems, enhance risk analysis, and optimize decision-making in dynamic global markets. The curriculum blends academic excellence with practical innovation, preparing you to thrive in the evolving world of <strong>fintech, investment analytics, and digital finance transformation.</strong>
         </p>
+      </div>
+
+      <div class="programme-visual">
+        <img src="assets/programme-circle.png?v=6" alt="M.Sc. in Artificial Intelligence and Finance" class="programme-circle-img">
       </div>
     </div>
   </div>
@@ -1150,15 +1105,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="know-more-section section-global">
   <div class="container know-more-container">
     <div class="know-more-inner">
-      <div class="know-more-content">
-        <h3 class="know-more-title">Need to know more?</h3>
-        <p class="know-more-text">
-          Explore the M.Sc. in Artificial Intelligence &amp; Finance in detail by downloading the full course brochure. Get comprehensive insights on curriculum, faculty, learning outcomes, and career pathways.
-        </p>
-        <a href="#" class="btn know-more-cta fw-bold npfWidgetButton npfWidget-2ab27b10e1ba7ceb50a0745ddfda303a">DOWNLOAD BROCHURE <span class="know-more-cta-arrow" aria-hidden="true">&#8594;</span></a>
-      </div>
       <div class="know-more-media">
         <img src="assets/know-more-brochure.png?v=2" alt="AI and finance data visualization with robotic hand" class="know-more-img">
+      </div>
+      <div class="know-more-content">
+        <h3 class="know-more-title">Need to know more?</h3>
+        <p class="know-more-lead">Explore the complete programme details.</p>
+        <p class="know-more-text">Explore the M.Sc. in Artificial Intelligence &amp; Finance in detail by downloading the full course brochure. Get comprehensive insights on curriculum, faculty, learning outcomes, and career pathways.</p>
+        <a href="#" class="btn know-more-cta font-weight-bold npfWidgetButton npfWidget-2ab27b10e1ba7ceb50a0745ddfda303a">DOWNLOAD BROCHURE</a>
       </div>
     </div>
   </div>
@@ -1182,39 +1136,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </thead>
           <tbody>
             <tr>
-              <td>Applied Learning &amp; Industry Exposure</td>
-              <td>Combines AI-driven projects, financial data simulations, &amp; real-world fintech case studies. Learners gain exposure to blockchain systems, algorithmic trading, &amp; agentic AI applications.</td>
-              <td>Primarily theoretical; minimal practical engagement or integration with real-world fintech tools.</td>
+              <td data-label="Feature">Applied Learning &amp; Industry Exposure</td>
+              <td data-label="M.Sc. in AI &amp; Finance (JGU Online)">Combines AI-driven projects, financial data simulations, &amp; real-world fintech case studies. Learners gain exposure to blockchain systems, algorithmic trading, &amp; agentic AI applications.</td>
+              <td data-label="Regular Finance / AI Programme">Primarily theoretical; minimal practical engagement or integration with real-world fintech tools.</td>
             </tr>
             <tr>
-              <td>Expert Faculty &amp; Mentorship</td>
-              <td>Learn from global faculty &amp; industry leaders with expertise spanning AI, finance, &amp; data science. Includes live mentorship sessions, research discussions, &amp; career guidance.</td>
-              <td>Faculty often have limited global exposure or experience with applied AI in finance.</td>
+              <td data-label="Feature">Expert Faculty &amp; Mentorship</td>
+              <td data-label="Feature">Learn from global faculty &amp; industry leaders with expertise spanning AI, finance, &amp; data science. Includes live mentorship sessions, research discussions, &amp; career guidance.</td>
+              <td data-label="Feature">Faculty often have limited global exposure or experience with applied AI in finance.</td>
             </tr>
             <tr>
-              <td>Career Readiness &amp; Professional Pathways</td>
-              <td>Builds cross-functional skills for roles in fintech innovation, digital banking, investment analytics, risk management, and AI-driven decision systems.</td>
-              <td>Graduates may require additional certification or retraining for specialized roles in emerging tech-finance fields.</td>
+              <td data-label="Feature">Career Readiness &amp; Professional Pathways</td>
+              <td data-label="Feature">Builds cross-functional skills for roles in fintech innovation, digital banking, investment analytics, risk management, and AI-driven decision systems.</td>
+              <td data-label="Feature">Graduates may require additional certification or retraining for specialized roles in emerging tech-finance fields.</td>
             </tr>
             <tr>
-              <td>Advanced Digital Learning Ecosystem</td>
-              <td>Features a cutting-edge online platform with interactive labs, real-time data environments, and AI-backed learning analytics for personalized progress tracking.</td>
-              <td>Often limited to traditional e-learning setups without hands-on or data-centric tools.</td>
+              <td data-label="Feature">Advanced Digital Learning Ecosystem</td>
+              <td data-label="Feature">Features a cutting-edge online platform with interactive labs, real-time data environments, and AI-backed learning analytics for personalized progress tracking.</td>
+              <td data-label="Feature">Often limited to traditional e-learning setups without hands-on or data-centric tools.</td>
             </tr>
             <tr>
-              <td>Global Peer &amp; Alumni Network</td>
-              <td>Access to an international community of learners and alumni across finance, data analytics, and AI sectors, enabling global collaboration and career opportunities.</td>
-              <td>Networking largely confined to local institutions or classroom-based peers.</td>
+              <td data-label="Feature">Global Peer &amp; Alumni Network</td>
+              <td data-label="Feature">Access to an international community of learners and alumni across finance, data analytics, and AI sectors, enabling global collaboration and career opportunities.</td>
+              <td data-label="Feature">Networking largely confined to local institutions or classroom-based peers.</td>
             </tr>
             <tr>
-              <td>Holistic Skill Development</td>
-              <td>Enhances strategic, analytical, and leadership capabilities through AI-powered simulations, soft-skill workshops.</td>
-              <td>Focuses mainly on theoretical and subject-based knowledge, with minimal emphasis on professional or leadership development.</td>
+              <td data-label="Feature">Holistic Skill Development</td>
+              <td data-label="Feature">Enhances strategic, analytical, and leadership capabilities through AI-powered simulations, soft-skill workshops.</td>
+              <td data-label="Feature">Focuses mainly on theoretical and subject-based knowledge, with minimal emphasis on professional or leadership development.</td>
             </tr>
             <tr>
-              <td>Industry Integration &amp; Partnerships</td>
-              <td>Collaborates with leading fintech and data analytics companies through webinars, guest lectures, and project partnerships for practical industry exposure.</td>
-              <td>Rarely engages with corporate partners or real-world data-driven problem-solving exercises.</td>
+              <td data-label="Feature">Industry Integration &amp; Partnerships</td>
+              <td data-label="Feature">Collaborates with leading fintech and data analytics companies through webinars, guest lectures, and project partnerships for practical industry exposure.</td>
+              <td data-label="Feature">Rarely engages with corporate partners or real-world data-driven problem-solving exercises.</td>
             </tr>
           </tbody>
         </table>
@@ -1430,28 +1384,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <img class="recognition-bg" src="assets/recog-campus-bg.png" alt="" aria-hidden="true">
   <div class="recognition-container">
     <h2 class="recognition-title">Recognitions and Accreditations</h2>
-
-    <div class="recognition-grid">
+    <div class="recognition-grid" id="recognitionGrid">
       <div class="rec-card rec-card-small">
         <img src="assets/recog-1-qs-top150.png" alt="TOP 150 Under 50 Globally - QS Young University Rankings 2022">
       </div>
-
       <div class="rec-card rec-card-small">
         <img src="assets/recog-2-eminence.png" alt="Institution of Eminence - Ministry of Education, Government of India">
       </div>
-
       <div class="rec-card rec-card-main">
         <img src="assets/recog-3-global-rankings.png" alt="JGU Makes History in Global Rankings - QS World University Rankings by Subject">
       </div>
-
       <div class="rec-card rec-card-small">
         <img src="assets/recog-4-qs-no1.png" alt="Ranked No. 1 Private University in India - QS World University Rankings (2021 - 2023)">
       </div>
-
       <div class="rec-card rec-card-small">
         <img src="assets/recog-5-online-learning.png" alt="Ranked No. 1 Globally for Online Learning - THE 2024">
       </div>
     </div>
+    <div class="recognition-dots" id="recognitionDots" role="tablist" aria-label="Recognition slides"></div>
   </div>
 </section>
 
@@ -1466,11 +1416,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="accordion faq-accordion" id="faqLeft">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#faq1">
                   Who should consider this programme?
                 </button>
               </h2>
-              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqLeft">
+              <div id="faq1" class="collapse show" data-parent="#faqLeft">
                 <div class="accordion-body">
                   This programme is ideal for graduates and professionals aiming to combine financial knowledge with AI, machine learning, and analytics to lead in fintech, digital banking, and investment sectors.
                 </div>
@@ -1479,11 +1429,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq2">
                   Can I pursue this programme while working?
                 </button>
               </h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div id="faq2" class="collapse" data-parent="#faqLeft">
                 <div class="accordion-body">
                   Yes! The fully online format with live interactive sessions and recorded lectures is designed to fit the schedules of working professionals and global learners.
                 </div>
@@ -1492,11 +1442,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq3">
                   How does this programme help my career?
                 </button>
               </h2>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div id="faq3" class="collapse" data-parent="#faqLeft">
                 <div class="accordion-body">
                   Graduates develop the ability to design AI-driven financial solutions, analyze market data, implement algorithmic trading strategies, and lead digital transformation across global fintech, banking, and investment domains.
                 </div>
@@ -1510,11 +1460,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="accordion faq-accordion" id="faqRight">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq5">
                   What is the selection process?
                 </button>
               </h2>
-              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div id="faq5" class="collapse" data-parent="#faqRight">
                 <div class="accordion-body">
                   <p><strong>Step 1:</strong> Application review based on academic record and Statement of Purpose (SOP)</p>
                   <p><strong>Step 2:</strong> Evaluation of transcripts and relevant experience</p>
@@ -1525,11 +1475,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq6">
                   How do I apply?
                 </button>
               </h2>
-              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div id="faq6" class="collapse" data-parent="#faqRight">
                 <div class="accordion-body">
                   You can apply through the JGU Online Admissions Portal. Simply fill out the application form, upload your documents, and submit your Statement of Purpose (SOP).
                 </div>
@@ -1538,11 +1488,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq7">
                   What kind of career support is provided?
                 </button>
               </h2>
-              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div id="faq7" class="collapse" data-parent="#faqRight">
                 <div class="accordion-body">
                   Learners receive access to career webinars, placement guidance, and networking sessions with industry experts to prepare for global fintech, banking, and AI-driven roles.
                 </div>
@@ -1551,11 +1501,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq8">
                   Is financial aid or scholarship available?
                 </button>
               </h2>
-              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div id="faq8" class="collapse" data-parent="#faqRight">
                 <div class="accordion-body">
                   Yes, merit-based scholarships and need-based financial aid options are available for eligible candidates. These are reviewed on a case-by-case basis after admission.
                 </div>
@@ -1573,7 +1523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="enquire-card">
       <div class="enquire-form-panel">
         <div class="enquire-npf-scroll">
-          <div class="npf_wgts enquire-npf-widget" data-height="520px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
+          <div class="npf_wgts" data-height="400px" data-w="2ab27b10e1ba7ceb50a0745ddfda303a"></div>
         </div>
       </div>
       <div class="enquire-info-panel">
@@ -1585,399 +1535,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    
-    
-
-    
-    
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const track = document.getElementById('facultyTrack');
-  const prevBtn = document.querySelector('.faculty-arrow.prev');
-  const nextBtn = document.querySelector('.faculty-arrow.next');
-
-  if (!track || !prevBtn || !nextBtn) return;
-
-  function getScrollAmount() {
-    const member = track.querySelector('.faculty-member');
-    if (!member) return 256;
-    const styles = getComputedStyle(track);
-    const gap = parseFloat(styles.columnGap || styles.gap) || 24;
-    return member.offsetWidth + gap;
-  }
-
-  function updateFacultyArrows() {
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    prevBtn.disabled = track.scrollLeft <= 4;
-    nextBtn.disabled = track.scrollLeft >= maxScroll - 4 || maxScroll <= 0;
-  }
-
-  function scrollFaculty(direction) {
-    track.scrollBy({ left: direction * getScrollAmount(), behavior: 'smooth' });
-  }
-
-  prevBtn.addEventListener('click', function () {
-    scrollFaculty(-1);
-  });
-
-  nextBtn.addEventListener('click', function () {
-    scrollFaculty(1);
-  });
-
-  track.addEventListener('scroll', updateFacultyArrows, { passive: true });
-  window.addEventListener('resize', updateFacultyArrows);
-  window.addEventListener('load', updateFacultyArrows);
-  updateFacultyArrows();
-});
-</script>
-
- <script>
-        function showTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
-
-  <script>
-        (function () {
-        const track = document.getElementById('carouselTrack');
-        const wrapper = document.getElementById('carouselWrapper');
-        const nextBtn = document.getElementById('nextBtn');
-
-        if (!track || !wrapper || !nextBtn) return;
-
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        if (!totalSlides) return;
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        wrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        wrapper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-            }
-        }
-
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            if (currentSlide === totalSlides - 1) {
-                nextBtn.disabled = true;
-            } else {
-                nextBtn.disabled = false;
-            }
-        }
-
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateCarousel();
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            }
-        }
-
-        updateCarousel();
-        })();
-    </script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const viewport = document.getElementById('featuresSlider');
-  const prevBtn = document.querySelector('.features-arrow.prev');
-  const nextBtn = document.querySelector('.features-arrow.next');
-
-  if (!viewport || !prevBtn || !nextBtn) return;
-
-  const slides = Array.from(viewport.querySelectorAll('.features-slide'));
-  if (!slides.length) return;
-
-  let currentIndex = 0;
-
-  function goToSlide(index) {
-    currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-    const target = slides[currentIndex];
-
-    if (target) {
-      viewport.scrollTo({
-        left: target.offsetLeft,
-        behavior: 'smooth'
-      });
-    }
-
-    updateArrows();
-  }
-
-  function updateArrows() {
-    prevBtn.disabled = currentIndex <= 0;
-    nextBtn.disabled = currentIndex >= slides.length - 1;
-  }
-
-  function syncIndexFromScroll() {
-    const scrollLeft = viewport.scrollLeft;
-    let closestIndex = 0;
-    let smallestDiff = Infinity;
-
-    slides.forEach(function (slide, index) {
-      const diff = Math.abs(slide.offsetLeft - scrollLeft);
-      if (diff < smallestDiff) {
-        smallestDiff = diff;
-        closestIndex = index;
-      }
-    });
-
-    currentIndex = closestIndex;
-    updateArrows();
-  }
-
-  prevBtn.addEventListener('click', function () {
-    goToSlide(currentIndex - 1);
-  });
-
-  nextBtn.addEventListener('click', function () {
-    goToSlide(currentIndex + 1);
-  });
-
-  viewport.addEventListener('scroll', syncIndexFromScroll, { passive: true });
-  window.addEventListener('resize', function () {
-    goToSlide(currentIndex);
-  });
-
-  goToSlide(0);
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const panel = document.getElementById('tuitionPanel');
-  const panelBg = document.getElementById('tuitionPanelBg');
-  const tabButtons = document.querySelectorAll('.tuition-tab');
-  const tabPanels = document.querySelectorAll('.tuition-tab-panel');
-
-  if (!panel || !tabButtons.length || !tabPanels.length) return;
-
-  function switchTuitionTab(tabName) {
-    const isFees = tabName === 'fees';
-
-    panel.classList.toggle('tuition-panel--fees', isFees);
-    panel.classList.toggle('tuition-panel--eligibility', !isFees);
-
-    if (panelBg) {
-      panelBg.src = 'assets/image%20copy%2014.png';
-    }
-
-    tabButtons.forEach(function (button) {
-      const isActive = button.getAttribute('data-tab') === tabName;
-      button.classList.toggle('active', isActive);
-      button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-    });
-
-    tabPanels.forEach(function (tabPanel) {
-      const isActive = tabPanel.id === (isFees ? 'tuitionTabFees' : 'tuitionTabEligibility');
-      tabPanel.classList.toggle('active', isActive);
-      tabPanel.hidden = !isActive;
-    });
-  }
-
-  tabButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      switchTuitionTab(button.getAttribute('data-tab'));
-    });
-  });
-
-  switchTuitionTab('fees');
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const viewport = document.getElementById('highlightsSlider');
-  const track = document.getElementById('highlightsTrack');
-  const dotsContainer = document.getElementById('highlightsDots');
-
-  if (!viewport || !track || !dotsContainer) return;
-
-  const cards = Array.from(track.querySelectorAll('.highlight-card'));
-  if (!cards.length) return;
-
-  let currentIndex = 0;
-  let perView = 4;
-  let pageCount = 1;
-
-  function getGap() {
-    const styles = window.getComputedStyle(track);
-    return parseFloat(styles.columnGap || styles.gap) || 18;
-  }
-
-  function getPerView() {
-    const width = window.innerWidth;
-    if (width <= 575) return 1;
-    if (width <= 991) return 2;
-    if (width <= 1199) return 3;
-    return 4;
-  }
-
-  function buildDots() {
-    perView = getPerView();
-    pageCount = Math.max(1, Math.ceil(cards.length / perView));
-    dotsContainer.innerHTML = '';
-
-    for (let i = 0; i < pageCount; i++) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'highlights-dot' + (i === 0 ? ' active' : '');
-      btn.setAttribute('data-index', String(i));
-      btn.setAttribute('aria-label', 'Highlights slide ' + (i + 1));
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-      btn.addEventListener('click', function () {
-        goToPage(i);
-      });
-      dotsContainer.appendChild(btn);
-    }
-  }
-
-  function goToPage(index) {
-    pageCount = Math.max(1, Math.ceil(cards.length / perView));
-    currentIndex = Math.max(0, Math.min(index, pageCount - 1));
-
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const gap = getGap();
-    const offset = currentIndex * perView * (cardWidth + gap);
-    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
-
-    const dots = dotsContainer.querySelectorAll('.highlights-dot');
-    dots.forEach(function (dot, i) {
-      const isActive = i === currentIndex;
-      dot.classList.toggle('active', isActive);
-      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
-    });
-  }
-
-  function refresh() {
-    buildDots();
-    goToPage(Math.min(currentIndex, pageCount - 1));
-  }
-
-  let resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(refresh, 150);
-  });
-
-  refresh();
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const viewport = document.querySelector('.skills-carousel-viewport');
-  const track = document.getElementById('skillsCarouselTrack');
-  const dotsContainer = document.getElementById('skillsDots');
-
-  if (!viewport || !track || !dotsContainer) return;
-
-  const slides = Array.from(track.querySelectorAll('.skills-slide'));
-  const dots = dotsContainer.querySelectorAll('.skills-dot');
-  let currentIndex = 0;
-
-  function getSlideWidth() {
-    if (slides[0]) {
-      return slides[0].getBoundingClientRect().width;
-    }
-    return viewport.clientWidth;
-  }
-
-  function goToSlide(index) {
-    currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-    const offset = currentIndex * getSlideWidth();
-    track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
-
-    dots.forEach(function (dot, i) {
-      const isActive = i === currentIndex;
-      dot.classList.toggle('active', isActive);
-      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
-    });
-  }
-
-  dots.forEach(function (dot) {
-    dot.addEventListener('click', function () {
-      goToSlide(parseInt(dot.getAttribute('data-index'), 10));
-    });
-  });
-
-  window.addEventListener('resize', function () {
-    goToSlide(currentIndex);
-  });
-
-  goToSlide(0);
-});
-</script>
-
-<script>
-(function () {
-  var applyBtn = document.getElementById('heroApplyNowBtn');
-  var npfTrigger = document.querySelector('.hero-npf-trigger.npfWidget-2ab27b10e1ba7ceb50a0745ddfda303a');
-  if (!applyBtn) return;
-
-  applyBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (npfTrigger) {
-      npfTrigger.click();
-      return;
-    }
-    var fallback = document.querySelector('.npfWidgetButton.npfWidget-2ab27b10e1ba7ceb50a0745ddfda303a');
-    if (fallback) fallback.click();
-  });
-})();
-</script>
+<!-- JS: jQuery, Bootstrap 4, page interactions, NPF widgets -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js?v=202610281200"></script>
 
 <script type="text/javascript">var s=document.createElement("script"); s.type="text/javascript"; s.async=true; s.src="https://widgets.in8.nopaperforms.com/emwgts.js"; document.body.appendChild(s);</script>
 
@@ -1997,10 +1558,21 @@ let npfW2ab27b10e1ba7ceb50a0745ddfda303a = new NpfWidgetsInit({
 
  
 <footer class="site-footer">
-  <p class="text-center fw-bold">
+  <p class="text-center font-weight-bold">
     &copy; 2026 O.P. Jindal Global University. All Rights Reserved
   </p>
 </footer>
+
+<!-- NoPaperForms / NIAA Chatbot -->
+<div class="npf_chatbots" data-w="a8b32b8ab432456a971900791d70c15b" style="display:none;"></div>
+<script type="text/javascript">
+  var s = document.createElement("script");
+  s.type = "text/javascript";
+  s.async = true;
+  s.src = "https://chatbot.in8.nopaperforms.com/en-gb/backend/bots/niaachtbtscpt.js/e815e394ee244cd1a8dc3bebaf8d81bf/a8b32b8ab432456a971900791d70c15b";
+  document.body.appendChild(s);
+</script>
+
 </body>
 </html>
 
